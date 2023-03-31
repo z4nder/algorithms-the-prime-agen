@@ -6,10 +6,14 @@ fn main() {
 }
 
 fn bubble_sort(mut list: Vec<i32>) -> Vec<i32>{
-    for i in  0..list.len(){
-        for j in  0..list.len() -1 -i{
-            if list[j] > list[j+1] {
-                list.swap(j, j+1);
+    let mut swapped = true;
+    
+    while swapped {
+        swapped = false;
+        for i in 1..list.len() {
+            if list[i - 1] > list[i] {
+                list.swap(i - 1, i);
+                swapped = true
             }
         }
     }
